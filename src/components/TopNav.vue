@@ -1,20 +1,24 @@
 <template>
   <div class="topNav">
-    <div class="logo" @click="toggleAside">LOGO</div>
+    <router-link to="/" class="xxx">
+      <Icon name="logo"/>
+    </router-link>
     <router-link to="/doc">文档</router-link>
   </div>
 </template>
 
 <script lang="ts">
 import {inject, Ref} from 'vue';
+import Icon from './Icon.vue';
 
 export default {
+  components: {Icon},
   setup() {
     let asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
       asideVisible.value = !asideVisible.value;
     };
-    return {toggleAside}
+    return {toggleAside};
   }
 };
 </script>
@@ -30,9 +34,12 @@ export default {
   position: relative;
   z-index: 10;
   border-bottom: 1px solid rgba(60, 60, 60, .12);
-  > .logo {
-    max-width: 6em;
-    margin-right: auto;
-  }
 }
+
+.icon {
+  width: 36px;
+  height: 36px;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;}
 </style>
