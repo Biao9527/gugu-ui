@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="home">
     <TopNav/>
     <div class="banner">
       <h1>咕咕UI</h1>
@@ -22,10 +22,11 @@ export default {
 .banner {
   padding: 100px 0;
   display: flex;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: lightgreen;
+  background: #ffffff;
 
   > .actions {
     padding: 8px 0;

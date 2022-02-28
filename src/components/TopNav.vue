@@ -1,10 +1,7 @@
 <template>
   <div class="topNav">
     <div class="logo" @click="toggleAside">LOGO</div>
-    <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
-    </ul>
+    <router-link to="/doc">文档</router-link>
   </div>
 </template>
 
@@ -24,25 +21,18 @@ export default {
 
 <style lang="scss" scoped>
 .topNav {
-  background: pink;
+  background: #ffffff;
+  height: 55px;
   display: flex;
-  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
   position: relative;
   z-index: 10;
-
+  border-bottom: 1px solid rgba(60, 60, 60, .12);
   > .logo {
     max-width: 6em;
     margin-right: auto;
-  }
-
-  > .menu {
-    display: flex;
-    white-space: nowrap;
-    flex-wrap: nowrap;
-
-    > li {
-      margin: 0 1em;
-    }
   }
 }
 </style>
