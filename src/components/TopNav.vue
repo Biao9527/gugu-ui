@@ -3,10 +3,10 @@
     <div v-if="listToggle" class="listWrapper"  @click="toggleAside">
       <Icon name="list"/>
     </div>
-    <router-link to="/" class="xxx">
+    <router-link to="/" class="logo">
       <Icon name="logo"/>
     </router-link>
-    <router-link to="/doc" class="file">文档</router-link>
+    <router-link v-if="!listToggle" to="/doc" class="file">文档</router-link>
   </div>
 </template>
 
@@ -53,13 +53,20 @@ export default {
   display: none;
 }
 @media (max-width: 500px) {
+  .logo{
+    margin: 0 auto;
+  }
   .topNav{
     display: flex;
     align-items: center;
     padding: 0 20px;
   }
+  .file{
+    display: none;
+  }
   .listWrapper{
     display: flex;
+    position: absolute;
     .icon{
       width: 1.6em;
       height: 1.6em;
