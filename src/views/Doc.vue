@@ -1,8 +1,20 @@
 <template>
-  <div>
-    <TopNav/>
+  <div class="layout">
+    <TopNav class="nav"/>
     <div class="content">
       <aside v-if="asideVisible">
+        <h2>文档</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/switch">介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/button">安装</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/dialog">快速上手</router-link>
+          </li>
+        </ol>
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -20,7 +32,7 @@
         </ol>
       </aside>
       <main>
-        主要内容
+        <router-view/>
       </main>
     </div>
   </div>
@@ -33,29 +45,43 @@ import {inject, Ref} from 'vue';
 export default {
   components: {TopNav},
   setup() {
-    const asideVisible = inject<Ref<boolean>>('asideVisible')
-    return {asideVisible}
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    return {asideVisible};
   }
 };
 </script>
 
 <style lang="scss" scoped>
-aside {
-  background: lightblue;
-  width: 150px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 70px 16px 16px;
-
-  > h2 {
-    margin-bottom: 4px;
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  > .nav {
+    flex-shrink: 0;
   }
-
-  > ol {
-    > li {
-      padding: 4px 0;
-    }
+  > .content {
+    flex-grow: 1;
+    padding-top: 3.4rem;
+    padding-left: 20rem;
+  }
+}
+.content {
+  display: flex;
+  > aside {
+    flex-shrink: 0;
+    border-right: 1px solid #eaecef;
+    width: 20rem;
+    padding: 0 16px;
+    position: fixed;
+    top: 3.6rem;
+    left: 0;
+    height: 100%;
+    z-index: 5;
+  }
+  > main {
+    flex-grow: 1;
+    background: #ffffff;
+    overflow: auto;
   }
 }
 </style>

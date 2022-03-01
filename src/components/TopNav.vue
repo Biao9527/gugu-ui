@@ -31,8 +31,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 0 80px;
-  position: relative;
+  position: fixed;
   z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
   border-bottom: 1px solid rgba(60, 60, 60, .12);
 }
 .icon {

@@ -9,7 +9,7 @@ import {provide, ref} from 'vue';
 export default {
   name: 'App',
   setup(){
-    const asideVisible = ref(false)
+    const asideVisible = ref(true)
     provide('asideVisible',asideVisible)
   }
 }
