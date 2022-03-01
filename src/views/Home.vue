@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopNav/>
-    <div class="banner">
+    <div class="banner" >
       <h1>咕咕 UI</h1>
       <h2>一款 相当厉害 的 UI 框架</h2>
       <p class="actions">
@@ -35,6 +35,7 @@
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
 import Icon from '../components/Icon.vue';
+import {inject, Ref} from 'vue';
 
 export default {
   components: {Icon, TopNav}

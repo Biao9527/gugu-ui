@@ -1,6 +1,6 @@
 <template>
   <div class="topNav">
-    <div class="list"  @click="toggleAside">
+    <div class="listWrapper"  @click="toggleAside">
       <Icon name="list"/>
     </div>
     <router-link to="/" class="xxx">
@@ -48,7 +48,7 @@ export default {
   fill: currentColor;
   overflow: hidden;
 }
-.list{
+.listWrapper{
   display: none;
 }
 @media (max-width: 500px) {
@@ -57,7 +57,7 @@ export default {
     align-items: center;
     padding: 0 20px;
   }
-  .list{
+  .listWrapper{
     display: flex;
     .icon{
       width: 1.6em;

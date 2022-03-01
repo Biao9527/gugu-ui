@@ -31,7 +31,7 @@
           </li>
         </ol>
       </aside>
-      <main>
+      <main  @click="toggleAside">
         <router-view/>
       </main>
     </div>
@@ -40,13 +40,18 @@
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
-import {inject, Ref} from 'vue';
+import {inject, provide, ref, Ref} from 'vue';
 
 export default {
   components: {TopNav},
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
-    return {asideVisible};
+    const toggleAside = () => {
+      if (asideVisible.value) {
+        asideVisible.value = !asideVisible.value;
+      }
+    };
+    return {toggleAside, asideVisible};
   }
 };
 </script>
@@ -56,28 +61,40 @@ export default {
   display: flex;
   flex-direction: column;
   height: 100vh;
+
   > .nav {
     flex-shrink: 0;
   }
+
   > .content {
     flex-grow: 1;
     padding-top: 3.4rem;
     padding-left: 20rem;
+    @media (max-width: 500px) {
+      padding-left: 0;
+    }
   }
 }
+
 .content {
   display: flex;
+
   > aside {
     flex-shrink: 0;
     border-right: 1px solid #eaecef;
     width: 20rem;
     padding: 0 16px;
     position: fixed;
-    top: 3.6rem;
+    top: 3.4rem;
     left: 0;
     height: 100%;
     z-index: 5;
+    @media (max-width: 500px) {
+      width: 12rem;
+      background: #ffffff;
+    }
   }
+
   > main {
     flex-grow: 1;
     background: #ffffff;
