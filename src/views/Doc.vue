@@ -6,13 +6,13 @@
         <h2>文档</h2>
         <ol>
           <li>
-            <router-link to="/doc/switch">介绍</router-link>
+            <router-link to="/doc/">介绍</router-link>
           </li>
           <li>
-            <router-link to="/doc/button">安装</router-link>
+            <router-link to="/doc/">安装</router-link>
           </li>
           <li>
-            <router-link to="/doc/dialog">快速上手</router-link>
+            <router-link to="/doc/">快速上手</router-link>
           </li>
         </ol>
         <h2>组件列表</h2>

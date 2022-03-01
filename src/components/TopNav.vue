@@ -1,5 +1,8 @@
 <template>
   <div class="topNav">
+    <div class="list"  @click="toggleAside">
+      <Icon name="list"/>
+    </div>
     <router-link to="/" class="xxx">
       <Icon name="logo"/>
     </router-link>
@@ -45,13 +48,22 @@ export default {
   fill: currentColor;
   overflow: hidden;
 }
+.list{
+  display: none;
+}
 @media (max-width: 500px) {
   .topNav{
     display: flex;
-    justify-content: center;
     align-items: center;
-    >.file{
-      display: none;
+    padding: 0 20px;
+  }
+  .list{
+    display: flex;
+    .icon{
+      width: 1.6em;
+      height: 1.6em;
+      vertical-align: -0.15em;
+      overflow: hidden;
     }
   }
 }
