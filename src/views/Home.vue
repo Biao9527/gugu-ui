@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopNav/>
+    <TopNav :list-toggle="false"/>
     <div class="banner" >
       <h1>咕咕 UI</h1>
       <h2>一款 相当厉害 的 UI 框架</h2>

@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <TopNav class="nav"/>
+    <TopNav class="nav" :list-toggle="true"/>
     <div class="content">
       <aside v-if="asideVisible">
         <h2>文档</h2>
@@ -31,7 +31,7 @@
           </li>
         </ol>
       </aside>
-      <main  @click="toggleAside">
+      <main @click="toggleAside">
         <router-view/>
       </main>
     </div>
@@ -46,8 +46,9 @@ export default {
   components: {TopNav},
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
+    const width = document.documentElement.clientWidth;
     const toggleAside = () => {
-      if (asideVisible.value) {
+      if (asideVisible.value && width <= 500) {
         asideVisible.value = !asideVisible.value;
       }
     };

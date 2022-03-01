@@ -1,6 +1,6 @@
 <template>
   <div class="topNav">
-    <div class="listWrapper"  @click="toggleAside">
+    <div v-if="listToggle" class="listWrapper"  @click="toggleAside">
       <Icon name="list"/>
     </div>
     <router-link to="/" class="xxx">
@@ -16,6 +16,7 @@ import Icon from './Icon.vue';
 
 export default {
   components: {Icon},
+  props:['listToggle'],
   setup() {
     let asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
