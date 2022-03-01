@@ -5,12 +5,19 @@ import SwitchDemo from './components/SwitchDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
+import Introduce from './components/Introduce.vue'
+import Install from './components/Install.vue'
+import QuickUse from './components/QuickUse.vue'
+
 
 
 const routes = [
   {path: '/', component: Home},
   {path: '/doc', component: Doc,children:[
-      {path: '/doc/' ,component:SwitchDemo},
+      {path: '/doc' ,component:Introduce},
+      {path: '/doc/introduce' ,component:Introduce},
+      {path: '/doc/install' ,component:Install},
+      {path: '/doc/quickUse' ,component:QuickUse},
       {path: '/doc/switch' ,component:SwitchDemo},
       {path: '/doc/button' ,component:ButtonDemo},
       {path: '/doc/dialog' ,component:DialogDemo},

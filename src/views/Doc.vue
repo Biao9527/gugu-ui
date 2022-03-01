@@ -5,29 +5,29 @@
       <aside v-if="asideVisible">
         <h2>文档</h2>
         <ol>
-          <li>
-            <router-link to="/doc/">介绍</router-link>
+          <li >
+            <router-link to="/doc/introduce" active-class="selected">介绍</router-link>
           </li>
           <li>
-            <router-link to="/doc/">安装</router-link>
+            <router-link to="/doc/install" active-class="selected">安装</router-link>
           </li>
           <li>
-            <router-link to="/doc/">快速上手</router-link>
+            <router-link to="/doc/quickUse" active-class="selected">快速上手</router-link>
           </li>
         </ol>
         <h2>组件列表</h2>
         <ol>
           <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
+            <router-link to="/doc/switch" active-class="selected">Switch 组件</router-link>
           </li>
           <li>
-            <router-link to="/doc/button">Button 组件</router-link>
+            <router-link to="/doc/button"  active-class="selected">Button 组件</router-link>
           </li>
           <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
+            <router-link to="/doc/dialog"  active-class="selected">Dialog 组件</router-link>
           </li>
           <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
+            <router-link to="/doc/tabs"  active-class="selected">Tabs 组件</router-link>
           </li>
         </ol>
       </aside>
@@ -40,7 +40,7 @@
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
-import {inject, provide, ref, Ref} from 'vue';
+import {inject, Ref} from 'vue';
 
 export default {
   components: {TopNav},
@@ -69,7 +69,7 @@ export default {
 
   > .content {
     flex-grow: 1;
-    padding-top: 3.4rem;
+    padding-top: 5.4rem;
     padding-left: 20rem;
     @media (max-width: 500px) {
       padding-left: 0;
@@ -83,13 +83,24 @@ export default {
   > aside {
     flex-shrink: 0;
     border-right: 1px solid #eaecef;
-    width: 20rem;
-    padding: 0 16px;
+    min-width: 18rem;
+    padding: 20px 16px;
     position: fixed;
     top: 3.4rem;
     left: 0;
     height: 100%;
     z-index: 5;
+    >h2{
+      margin: 0 4px;
+    }
+    >ol{
+      >li{
+        margin: 12px 24px;
+        >.selected{
+          color: #ff852a;
+        }
+      }
+    }
     @media (max-width: 500px) {
       width: 12rem;
       background: #ffffff;
