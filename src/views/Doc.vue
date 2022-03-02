@@ -69,9 +69,10 @@ export default {
 
   > .content {
     flex-grow: 1;
-    padding-top: 5.4rem;
+    padding-top: 8rem;
     padding-left: 20rem;
     @media (max-width: 500px) {
+      padding-top: 4rem;
       padding-left: 0;
     }
   }
@@ -83,7 +84,7 @@ export default {
   > aside {
     flex-shrink: 0;
     border-right: 1px solid #eaecef;
-    min-width: 18rem;
+    min-width: 20rem;
     padding: 20px 16px;
     position: fixed;
     top: 3.4rem;
@@ -91,11 +92,11 @@ export default {
     height: 100%;
     z-index: 5;
     >h2{
-      margin: 0 4px;
+      margin: 0 20px;
     }
     >ol{
       >li{
-        margin: 12px 24px;
+        margin: 12px 20px;
         >.selected{
           color: #ff852a;
         }

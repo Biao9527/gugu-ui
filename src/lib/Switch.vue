@@ -23,11 +23,11 @@ export default {
       context.emit('update:value', !props.value);
     };
     const className = computed(() => {
-      const {value, size,disabled} = props;
+      const {value, size, disabled} = props;
       return {
         checked: value,
         [`switch-${size}`]: size,
-        ['switch-disabled']:disabled
+        ['switch-disabled']: disabled
       };
     });
     return {toggle, className};
@@ -74,49 +74,45 @@ button {
       margin-left: -4px;
     }
   }
-&.switch-small {
-  width: $h * 1.2;
-  height: $h * 0.8;
-
-  > span {
-    width: $h2 * 0.75;
-    height: $h2 * 0.75;
-  }
-
-  &.checked > span {
-    left: calc(100% - #{$h2 * 0.75} - 2px);
-  }
-
-  &:active {
+  &.switch-small {
+    width: $h * 1.2;
+    height: $h * 0.8;
     > span {
-      width: $h2;
+      width: $h2 * 0.75;
+      height: $h2 * 0.75;
+    }
+    &.checked > span {
+      left: calc(100% - #{$h2 * 0.75} - 2px);
+    }
+    &:active {
+      > span {
+        width: $h2;
+      }
     }
   }
-}
-&.switch-big {
-  height: $h * 1.4;
-  width: $h * 2.8;
-  border-radius: $h/1.4;
-  > span {
-    width: $h2 * 1.5;
-    height: $h2 * 1.5;
-    border-radius: 50%;
-  }
-  &.checked > span {
-    left: calc(100% - #{$h2 * 1.5} - 2px);
-  }
-  &:active {
+  &.switch-big {
+    height: $h * 1.4;
+    width: $h * 2.8;
+    border-radius: $h/1.4;
     > span {
-      width: $h2;
+      width: $h2 * 1.5;
+      height: $h2 * 1.5;
+      border-radius: 50%;
+    }
+    &.checked > span {
+      left: calc(100% - #{$h2 * 1.5} - 2px);
+    }
+    &:active {
+      > span {
+        width: $h2;
+      }
     }
   }
-}
-  &.switch-disabled{
+  &.switch-disabled {
     background: #bfbfbf;
-    &:hover{
-      cursor:no-drop;
+    &:hover {
+      cursor: no-drop;
     }
   }
 }
-
 </style>
