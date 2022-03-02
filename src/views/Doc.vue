@@ -102,7 +102,7 @@ export default {
       }
     }
     @media (max-width: 500px) {
-      width: 12rem;
+      min-width: 12rem;
       background: #ffffff;
     }
   }
