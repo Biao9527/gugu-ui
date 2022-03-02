@@ -1,9 +1,21 @@
 <template>
   <div>
-    <button><span></span></button>
+    <button :class="{checked:x}" @click="toggle"><span></span></button>
   </div>
 </template>
+<script lang="ts">
+import {ref} from 'vue';
 
+export default {
+  setup(){
+    const x = ref(false)
+    const toggle = ()=>{
+      x.value = !x.value
+    }
+    return {x,toggle}
+  }
+}
+</script>
 <style lang="scss" scoped>
 $h: 22px;
 $h2: $h - 4px;
@@ -11,7 +23,7 @@ button{
   height: $h;
   width: $h*2;
   border: none;
-  background: blue;
+  background: gray;
   border-radius: $h/2;
   position: relative;
 }
@@ -23,8 +35,12 @@ span{
   width: $h2;
   background:#ffffff;
   border-radius: $h2 / 2;
+  transition: left 250ms;
 }
-button:hover >span{
+.checked{
+  background: blue;
+}
+button.checked >span{
   left: calc(100% - #{$h2} - 2px);
 }
 </style>
