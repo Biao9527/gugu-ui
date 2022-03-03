@@ -81,7 +81,7 @@ $h2: $h - 4px;
       width: $h2 * 0.75;
       height: $h2 * 0.75;
     }
-    &.checked > span {
+    &.gugu-checked > span {
       left: calc(100% - #{$h2 * 0.75} - 2px);
     }
     &:active {
@@ -95,8 +95,8 @@ $h2: $h - 4px;
     width: $h * 2.8;
     border-radius: $h/1.4;
     > span {
-      width: $h2 * 1.5;
-      height: $h2 * 1.5;
+      width: $h2 * 1.45;
+      height: $h2 * 1.45;
       border-radius: 50%;
     }
     &.gugu-checked > span {
