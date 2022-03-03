@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="switch"
+    <button class="gugu-switch"
             :class="className"
             @click="toggle"
             :disabled="disabled">
@@ -25,9 +25,9 @@ export default {
     const className = computed(() => {
       const {value, size, disabled} = props;
       return {
-        checked: value,
-        [`switch-${size}`]: size,
-        ['switch-disabled']: disabled
+        ['gugu-checked']: value,
+        [`gugu-switch-${size}`]: size,
+        ['gugu-switch-disabled']: disabled
       };
     });
     return {toggle, className};
@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.gugu-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -54,7 +54,7 @@ button {
     border-radius: $h2 / 2;
     transition: all 250ms;
   }
-  &.checked {
+  &.gugu-checked {
     background: #1890ff;
     > span {
       left: calc(100% - #{$h2} - 2px);
@@ -68,13 +68,13 @@ button {
       width: $h2 + 4px;
     }
   }
-  &.checked:active {
+  &.gugu-checked:active {
     > span {
       width: $h2 + 4px;
       margin-left: -4px;
     }
   }
-  &.switch-small {
+  &.gugu-switch-small {
     width: $h * 1.2;
     height: $h * 0.8;
     > span {
@@ -90,7 +90,7 @@ button {
       }
     }
   }
-  &.switch-big {
+  &.gugu-switch-big {
     height: $h * 1.4;
     width: $h * 2.8;
     border-radius: $h/1.4;
@@ -99,7 +99,7 @@ button {
       height: $h2 * 1.5;
       border-radius: 50%;
     }
-    &.checked > span {
+    &.gugu-checked > span {
       left: calc(100% - #{$h2 * 1.5} - 2px);
     }
     &:active {
@@ -108,7 +108,7 @@ button {
       }
     }
   }
-  &.switch-disabled {
+  &.gugu-switch-disabled {
     background: #bfbfbf;
     &:hover {
       cursor: no-drop;
