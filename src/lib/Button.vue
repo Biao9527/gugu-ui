@@ -1,5 +1,5 @@
 <template>
-  <button class="gugu-button" :class="className">
+  <button class="gugu-button" :class="className" :disabled="disabled">
     <slot/>
   </button>
 </template>
@@ -16,14 +16,23 @@ export default {
     size:{
       type:String,
       default: 'normal'
+    },
+    level:{
+      type:String,
+      default:'normal'
+    },
+    disabled:{
+      type:Boolean,
+      default:false
     }
   },
   setup(props){
     const className = computed(()=>{
-      const {theme,size} = props
+      const {theme,size,level} = props
       return {
         [`gugu-theme-${theme}`]:theme,
-        [`gugu-size-${size}`]:size
+        [`gugu-size-${size}`]:size,
+        [`gugu-level-${level}`]:level
       }
     })
     return {className}
@@ -36,6 +45,8 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: red;
+$grey:#bec8c8;
 .gugu-button {
   box-sizing: border-box;
   height: $h;
@@ -50,6 +61,7 @@ $radius: 4px;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
+  transition: background 250ms;
   & + & {
     margin-left: 8px;
   }
@@ -90,6 +102,70 @@ $radius: 4px;
     height: 20px;
     padding: 0 4px;
   }
-
+  &.gugu-theme-button {
+    &.gugu-level-main {
+      background: $blue;
+      color: white;
+      border-color: $blue;
+      &:hover,
+      &:focus {
+        background: darken($blue, 10%);
+        border-color: darken($blue, 10%);
+      }
+    }
+    &.gugu-level-danger {
+      background: $red;
+      border-color: $red;
+      color: white;
+      &:hover,
+      &:focus {
+        background: darken($red, 10%);
+        border-color: darken($red, 10%);
+      }
+    }
+  }
+  &.gugu-theme-link {
+    &.gugu-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+  &.gugu-theme-text {
+    &.gugu-level-main {
+      color: $blue;
+      &:hover,
+      &:focus {
+        color: darken($blue, 10%);
+      }
+    }
+    &.gugu-level-danger {
+      color: $red;
+      &:hover,
+      &:focus {
+        color: darken($red, 10%);
+      }
+    }
+  }
+  &.gugu-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.gugu-theme-link, &.gugu-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        background: none;
+      }
+    }
+  }
 }
 </style>
