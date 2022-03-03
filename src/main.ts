@@ -1,6 +1,7 @@
+import './index.scss';
+import './lib/gugu.scss'
 import {createApp} from 'vue';
 import App from './App.vue';
-import './index.scss';
 import Icon from './components/Icon.vue'
 import {router} from './router';
 
