@@ -6,7 +6,7 @@
         <h2>文档</h2>
         <ol>
           <li >
-            <router-link to="/doc/introduce" active-class="selected">介绍</router-link>
+            <router-link to="/doc/" active-class="selected">介绍</router-link>
           </li>
           <li>
             <router-link to="/doc/install" active-class="selected">安装</router-link>

@@ -54,11 +54,12 @@ export default {
 .switchWrapper{
   >h2{
     padding-left: 100px;
+    margin-bottom: 20px;
   }
   >ul{
     >li{
       padding: 20px 100px;
-      border-bottom: 1px solid #eaecef;
+      border-top: 1px solid #eaecef;
     }
   }
 }

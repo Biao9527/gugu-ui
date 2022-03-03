@@ -14,7 +14,7 @@ import QuickUse from './components/QuickUse.vue'
 const routes = [
   {path: '/', component: Home},
   {path: '/doc', component: Doc,children:[
-      {path: '/doc' ,component:Introduce},
+      {path: '/doc/' ,component:Introduce},
       {path: '/doc/introduce' ,component:Introduce},
       {path: '/doc/install' ,component:Install},
       {path: '/doc/quickUse' ,component:QuickUse},
