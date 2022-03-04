@@ -6,19 +6,22 @@
     :close-onclick-overlay="false"
     :ok="fn1"
     :cancel="fn2">
-    <template>
-      <div>标题</div>
+    <template v-slot:title>
+      <strong>标题</strong>
     </template>
     <template v-slot:content>
       <div>hi</div>
       <div>hi2</div>
     </template>
   </Dialog>
+  <h2>示例二</h2>
+  <Button @click="showDialog">show</Button>
 </template>
 <script>
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
-import {ref} from 'vue';
+import {h, ref} from 'vue';
+import {openDialog} from '../lib/openDialog';
 
 export default {
   components: {Button, Dialog},
@@ -32,7 +35,21 @@ export default {
     };
     const fn2 = () => {
     };
-    return {visible, toggle, fn1, fn2};
+    const showDialog = () => {
+      openDialog({
+        title: h('strong', {}, '标题'),
+        content: '你好',
+        closeOnclickOverlay:false,
+        ok(){
+          console.log('ok');
+          return false
+        },
+        cancel(){
+          console.log('cancel');
+        }
+      })
+    }
+    return {visible, toggle, fn1, fn2,showDialog};
   }
 };
 </script>

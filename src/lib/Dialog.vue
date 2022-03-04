@@ -99,7 +99,6 @@ $border-color: #eaecef;
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
-    font-weight: bold
   }
   > main {
     padding: 24px 16px;
