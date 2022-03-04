@@ -1,20 +1,22 @@
 <template>
   <template v-if="visible">
-    <div class="gugu-dialog-overlay" @click="onclickOverlay"></div>
-    <div class="gugu-dialog-wrapper">
-      <div class="gugu-dialog">
-        <header>
-          <slot name="title"/>
-          <span @click="close" class="gugu-dialog-close"></span></header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="gugu-dialog-overlay" @click="onclickOverlay"></div>
+      <div class="gugu-dialog-wrapper">
+        <div class="gugu-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="gugu-dialog-close"></span></header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 <script lang="ts">
@@ -27,37 +29,37 @@ export default {
       type: Boolean,
       default: false
     },
-    closeOnclickOverlay:{
+    closeOnclickOverlay: {
       type: Boolean,
       default: true
     },
-    ok:{
-      type:Function
+    ok: {
+      type: Function
     },
-    cancel:{
-      type:Function
+    cancel: {
+      type: Function
     }
   },
-  setup(props,context){
-    const close = ()=>{
-      context.emit('update:visible',false)
-    }
-    const onclickOverlay =()=>{
-      if (props.closeOnclickOverlay){
-        close()
+  setup(props, context) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const onclickOverlay = () => {
+      if (props.closeOnclickOverlay) {
+        close();
       }
-    }
-    const ok = ()=>{
-      if (props.ok && props.ok()!==false){
-        close()
+    };
+    const ok = () => {
+      if (props.ok && props.ok() !== false) {
+        close();
       }
-    }
-    const cancel = ()=>{
-      if (props.cancel && props.cancel()!==false){
-        close()
+    };
+    const cancel = () => {
+      if (props.cancel && props.cancel() !== false) {
+        close();
       }
-    }
-    return{close,onclickOverlay,ok,cancel}
+    };
+    return {close, onclickOverlay, ok, cancel};
   }
 };
 </script>
