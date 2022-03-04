@@ -1,7 +1,7 @@
 <template>
   <h2>示例一</h2>
   <Button @click="toggle">toggle</Button>
-  <Dialog v-model:visible="visible"/>
+  <Dialog v-model:visible="visible" :close-onclick-overlay="false" :ok="fn1" :cancel="fn2"/>
 </template>
 <script>
 import Dialog from '../lib/Dialog.vue';
@@ -14,7 +14,12 @@ export default {
     const toggle = ()=>{
       visible.value = !visible.value
     }
-    return {visible,toggle}
+    const fn1 = ()=>{
+      return false
+    }
+    const fn2 = ()=>{
+    }
+    return {visible,toggle,fn1,fn2}
   }
 };
 </script>
