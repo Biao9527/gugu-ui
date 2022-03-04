@@ -1,7 +1,19 @@
 <template>
   <h2>示例一</h2>
   <Button @click="toggle">toggle</Button>
-  <Dialog v-model:visible="visible" :close-onclick-overlay="false" :ok="fn1" :cancel="fn2"/>
+  <Dialog
+    v-model:visible="visible"
+    :close-onclick-overlay="false"
+    :ok="fn1"
+    :cancel="fn2">
+    <template >
+      <div >标题111</div>
+    </template>
+    <template v-slot:content>
+      <div>hi</div>
+      <div>hi2</div>
+    </template>
+  </Dialog>
 </template>
 <script>
 import Dialog from '../lib/Dialog.vue';
