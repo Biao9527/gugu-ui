@@ -1,7 +1,10 @@
 <template>
   <div class="gugu-tabs">
     <div class="gugu-tabs-nav">
-      <div class="gugu-tabs-nav-item" v-for="(t,index) in titles" :key="index">{{ t }}</div>
+      <div class="gugu-tabs-nav-item"
+           @click="select(t)"
+           :class="selected === t ? 'selected':''"
+           v-for="(t,index) in titles" :key="index">{{ t }}</div>
     </div>
     <div class="gugu-tabs-content">
       <component v-for="(d,index) in defaults" :is="d" :key="index"/>
@@ -13,6 +16,11 @@
 import Tab from './Tab.vue';
 
 export default {
+  props:{
+    selected:{
+      type:String
+    }
+  },
   setup(props, context) {
     const defaults = context.slots.default();
     const titles = defaults.map(t => {
@@ -23,7 +31,10 @@ export default {
         throw new Error('Tabs 子标签必须是 Tab');
       }
     });
-    return {defaults, titles};
+    const select = (t)=>{
+      context.emit('update:selected',t)
+    }
+    return {defaults, titles,select};
   }
 };
 </script>
