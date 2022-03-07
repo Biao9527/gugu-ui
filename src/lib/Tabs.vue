@@ -5,7 +5,7 @@
            @click="select(t)"
            :class="selected === t ? 'selected':''"
            v-for="(t,index) in titles" :key="index"
-           :ref="el => { if (el) navItems[index] = el }">{{ t }}
+           :ref="el => { if (t===selected) selectedItem = el }">{{ t }}
       </div>
       <div class="gugu-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed, onMounted, onUpdated, ref} from 'vue';
+import {computed, onMounted, ref, watchEffect} from 'vue';
 
 export default {
   props: {
@@ -26,22 +26,19 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([]);
+    const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     const defaults = context.slots.default();
-    const x = ()=>{
-      const divs = navItems.value;
-      const result = divs.filter(div => div.classList.contains('selected'))[0];
-      const {width} = result.getBoundingClientRect();
-      indicator.value.style.width = width + 'px';
-      const {left: left1} = container.value.getBoundingClientRect();
-      const {left: left2} = result.getBoundingClientRect();
-      const left = left2 - left1;
-      indicator.value.style.left = left + 'px';
-    }
-    onMounted(x);
-    onUpdated(x)
+    onMounted(() => {
+      watchEffect(() => {
+        const {width, left: left2} = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + 'px';
+        const {left: left1} = container.value.getBoundingClientRect();
+        const left = left2 - left1;
+        indicator.value.style.left = left + 'px';
+      });
+    });
     const titles = defaults.map(t => {
       return t.props.title;
     });
@@ -56,7 +53,7 @@ export default {
     const select = (t) => {
       context.emit('update:selected', t);
     };
-    return {defaults, titles, select, current, navItems, indicator, container};
+    return {defaults, titles, select, current, selectedItem, indicator, container};
   }
 };
 </script>
