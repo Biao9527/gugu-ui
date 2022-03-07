@@ -4,21 +4,23 @@
       <div class="gugu-tabs-nav-item"
            @click="select(t)"
            :class="selected === t ? 'selected':''"
-           v-for="(t,index) in titles" :key="index">{{ t }}</div>
+           v-for="(t,index) in titles" :key="index">{{ t }}
+      </div>
     </div>
     <div class="gugu-tabs-content">
-      <component v-for="(d,index) in defaults" :is="d" :key="index"/>
+      <component :is="current" :key="selected"/>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import Tab from './Tab.vue';
+import {computed} from 'vue';
 
 export default {
-  props:{
-    selected:{
-      type:String
+  props: {
+    selected: {
+      type: String
     }
   },
   setup(props, context) {
@@ -31,10 +33,13 @@ export default {
         throw new Error('Tabs 子标签必须是 Tab');
       }
     });
-    const select = (t)=>{
-      context.emit('update:selected',t)
-    }
-    return {defaults, titles,select};
+    const current = computed(()=>{
+      return defaults.find(tag=>tag.props.title === props.selected)
+    })
+    const select = (t) => {
+      context.emit('update:selected', t);
+    };
+    return {defaults, titles, select,current};
   }
 };
 </script>
