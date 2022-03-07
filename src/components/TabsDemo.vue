@@ -12,7 +12,7 @@ import {ref} from 'vue';
 export default {
   components: {Tab, Tabs},
   setup(){
-    const selected = ref('导航一')
+    const selected = ref('导航二')
     return {selected}
   }
 };
