@@ -3,9 +3,12 @@
     <div class="gugu-tabs-nav" ref="container">
       <div class="gugu-tabs-nav-item"
            @click="select(t)"
-           :class="selected === t ? 'selected':''"
+           :class="{
+             selected:selected === t.title,
+             'gugu-tabs-nav-item-disabled':t.disabled
+           }"
            v-for="(t,index) in titles" :key="index"
-           :ref="el => { if (t===selected) selectedItem = el }">{{ t }}
+           :ref="el => { if (t.title===selected) selectedItem = el }">{{ t.title }}
       </div>
       <div class="gugu-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -17,7 +20,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed, onMounted, ref, watchEffect} from 'vue';
+import {computed, onMounted, onUpdated, ref, watchEffect} from 'vue';
 
 export default {
   props: {
@@ -40,7 +43,11 @@ export default {
       });
     });
     const titles = defaults.map(t => {
-      return t.props.title;
+      if (t.props.disabled) {
+        return {title: t.props.title, disabled: true};
+      } else {
+        return {title: t.props.title, disabled: false};
+      }
     });
     defaults.forEach(t => {
       if (t.type !== Tab) {
@@ -51,7 +58,9 @@ export default {
       return defaults.find(tag => tag.props.title === props.selected);
     });
     const select = (t) => {
-      context.emit('update:selected', t);
+      if (!t.disabled) {
+        context.emit('update:selected', t.title);
+      }
     };
     return {defaults, titles, select, current, selectedItem, indicator, container};
   }
@@ -77,6 +86,12 @@ $border-color: #d9d9d9;
       }
       &.selected {
         color: $blue;
+      }
+      &-disabled {
+        color: #bec8c8;
+        &:hover {
+          cursor: not-allowed;
+        }
       }
     }
     &-indicator {
