@@ -1,5 +1,15 @@
 <template>
-  <div>
-    <h2>介绍</h2>
-  </div>
+  <article class="markdown-body" v-html="md">
+  </article>
 </template>
+
+<script>
+import md from '../markdown/introduce.md';
+export default {
+  data() {
+    return {
+      md
+    }
+  }
+}
+</script>
