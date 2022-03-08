@@ -7,7 +7,7 @@
     <pre><code>yarn add king-ui</code></pre>
 
     <p>
-      下一节：<a href="#/doc/quickUse">开始使用</a>
+      下一节：<router-link to="/doc/quickUse">开始使用</router-link>
     </p>
   </article>
 </template>

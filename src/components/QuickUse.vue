@@ -4,7 +4,10 @@
       开始使用
     </h1>
 
-    <p>请先<a href="#/doc/install">安装</a>本组件库。</p>
+    <p>请先
+      <router-link to="/doc/install">安装</router-link>
+      本组件库。
+    </p>
     <p>然后在你的代码中写入下面的代码</p>
     <pre><code>import {Button, Tabs, Switch, Dialog} from "king-ui"</code></pre>
     就可以使用我提供的组件了。
