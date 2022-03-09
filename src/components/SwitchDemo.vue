@@ -4,7 +4,7 @@
     <div class="demo">
       <h2>基本</h2>
       <div class="demo-component">
-        <Switch v-model:value="bool"/>
+        <Switch1Demo/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -16,9 +16,7 @@
     <div class="demo">
       <h2>尺寸</h2>
       <div class="demo-component">
-        <Switch v-model:value="bool2"/>
-        <Switch v-model:value="bool3" size="small"/>
-        <Switch v-model:value="bool4" size="big"/>
+        <Switch2Demo/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -30,7 +28,7 @@
     <div class="demo">
       <h2>不可用状态</h2>
       <div class="demo-component">
-        <Switch v-model:value="bool5" :disabled="true"/>
+        <Switch3Demo/>
       </div>
       <div class="demo-actions">
         <Button>查看代码</Button>
@@ -43,19 +41,14 @@
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue';
-import {ref} from 'vue';
 import Button from '../lib/Button.vue';
+import Switch1Demo from './Switch1Demo.vue';
+import Switch2Demo from './Switch2Demo.vue';
+import Switch3Demo from './Switch3Demo.vue';
 
 export default {
-  components: {Button, Switch},
+  components: {Switch3Demo, Switch2Demo, Switch1Demo, Button},
   setup() {
-    const bool = ref<boolean>(false);
-    const bool2 = ref<boolean>(false);
-    const bool3 = ref<boolean>(false);
-    const bool4 = ref<boolean>(false);
-    const bool5 = ref<boolean>(false);
-    return {bool, bool2, bool3, bool4, bool5};
   }
 };
 </script>
