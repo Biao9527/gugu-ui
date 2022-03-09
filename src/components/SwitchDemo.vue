@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>&lt;Switch v-model:value="bool" /&gt;</pre>
+        <pre></pre>
       </div>
     </div>
     <div class="demo">
@@ -46,9 +46,12 @@ import Switch1Demo from './Switch1Demo.vue';
 import Switch2Demo from './Switch2Demo.vue';
 import Switch3Demo from './Switch3Demo.vue';
 
+console.log('1');
 export default {
   components: {Switch3Demo, Switch2Demo, Switch1Demo, Button},
   setup() {
+    return{
+    }
   }
 };
 </script>
