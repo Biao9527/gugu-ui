@@ -5,9 +5,9 @@ import SwitchDemo from './components/SwitchDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
-import Introduce from './components/Introduce.vue'
-import Install from './components/Install.vue'
-import QuickUse from './components/QuickUse.vue'
+import Introduce from './components/document/Introduce.vue'
+import Install from './components/document/Install.vue'
+import QuickUse from './components/document/QuickUse.vue'
 
 
 
