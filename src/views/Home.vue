@@ -11,19 +11,25 @@
       <div class="features">
         <ul>
           <li>
-            <Icon name="vue"/>
+            <svg class="icon">
+              <use xlink:href="#icon-vue"></use>
+            </svg>
             <h2>
             基于 Vue3
             </h2>
             <span>骄傲的使用了Vue 3 Composition API</span>
           </li>
           <li>
-            <Icon name="ts"/>
+            <svg class="icon">
+              <use xlink:href="#icon-ts"></use>
+            </svg>
             <h2>基于 TypeScript</h2>
             <span>源代码采用 TypeScript 书写（非严格检查）</span>
           </li>
           <li>
-            <Icon name="light"/>
+            <svg class="icon">
+              <use xlink:href="#icon-light"></use>
+            </svg>
             <h2>代码易读</h2>
             <span>每个组件的源代码都极其简洁</span>
           </li>
@@ -34,11 +40,9 @@
 </template>
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
-import Icon from '../components/Icon.vue';
-import {inject, Ref} from 'vue';
 
 export default {
-  components: {Icon, TopNav}
+  components: {TopNav}
 };
 </script>
 <style lang="scss" scoped>

@@ -1,10 +1,14 @@
 <template>
   <div class="topNav">
-    <div v-if="listToggle" class="listWrapper"  @click="toggleAside">
-      <Icon name="list"/>
+    <div v-if="listToggle" class="listWrapper" @click="toggleAside">
+      <svg class="icon">
+        <use xlink:href="#icon-list"></use>
+      </svg>
     </div>
     <router-link to="/" class="logo">
-      <Icon name="logo"/>
+      <svg class="icon">
+        <use xlink:href="#icon-logo"></use>
+      </svg>
     </router-link>
     <router-link v-if="!listToggle" to="/doc" class="file">文档</router-link>
   </div>
@@ -12,11 +16,9 @@
 
 <script lang="ts">
 import {inject, Ref} from 'vue';
-import Icon from './Icon.vue';
 
 export default {
-  components: {Icon},
-  props:['listToggle'],
+  props: ['listToggle'],
   setup() {
     let asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
@@ -42,32 +44,33 @@ export default {
   right: 0;
   border-bottom: 1px solid rgba(60, 60, 60, .12);
 }
-.icon {
-  width: 46px;
-  height: 46px;
-  vertical-align: -0.15em;
-  fill: currentColor;
-  overflow: hidden;
+a {
+  .icon {
+    width: 46px;
+    height: 46px;
+    vertical-align: -0.15em;
+    overflow: hidden;
+  }
 }
-.listWrapper{
+.listWrapper {
   display: none;
 }
 @media (max-width: 500px) {
-  .logo{
+  .logo {
     margin: 0 auto;
   }
-  .topNav{
+  .topNav {
     display: flex;
     align-items: center;
     padding: 0 20px;
   }
-  .file{
+  .file {
     display: none;
   }
-  .listWrapper{
+  .listWrapper {
     display: flex;
     position: absolute;
-    .icon{
+    .icon {
       width: 1.6em;
       height: 1.6em;
       vertical-align: -0.15em;
