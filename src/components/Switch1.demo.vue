@@ -1,10 +1,12 @@
-<Demo>
+<demo>
 基本
-</Demo>
+</demo>
 
 <template>
   <Switch v-model:value="bool"/>
 </template>
+
+
 <script lang="ts">
 import Switch from '../lib/Switch.vue';
 import {ref} from 'vue';

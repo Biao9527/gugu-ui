@@ -10,7 +10,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre></pre>
+        <pre>{{Switch1Demo.__sourceCode}}</pre>
       </div>
     </div>
     <div class="demo">
@@ -42,15 +42,16 @@
 
 <script lang="ts">
 import Button from '../lib/Button.vue';
-import Switch1Demo from './Switch1Demo.vue';
-import Switch2Demo from './Switch2Demo.vue';
-import Switch3Demo from './Switch3Demo.vue';
+import Switch1Demo from './Switch1.demo.vue';
+import Switch2Demo from './Switch2.demo.vue';
+import Switch3Demo from './Switch3.demo.vue';
 
-console.log('1');
+console.log(Switch1Demo.__sourceCode)
 export default {
   components: {Switch3Demo, Switch2Demo, Switch1Demo, Button},
   setup() {
     return{
+      Switch1Demo,Switch2Demo,Switch3Demo
     }
   }
 };

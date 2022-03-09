@@ -1,5 +1,5 @@
 <template>
-  <article class="markdown-body" v-html="content">
+  <article class="markdown-body article" v-html="content">
   </article>
 </template>
 
@@ -21,3 +21,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.article{
+margin: 0 20px;
+}
+</style>

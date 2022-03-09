@@ -1,4 +1,3 @@
-
 <template>
   <Switch v-model:value="bool1"/>
   <Switch v-model:value="bool2" size="small"/>
