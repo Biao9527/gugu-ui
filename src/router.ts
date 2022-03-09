@@ -5,19 +5,19 @@ import SwitchDemo from './components/SwitchDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
-import Introduce from './components/document/Introduce.vue'
-import Install from './components/document/Install.vue'
-import QuickUse from './components/document/QuickUse.vue'
+import Markdown from './components/Markdown.vue';
+import {h} from 'vue';
 
+const md = filename=>h(Markdown,{path:`../markdown/${filename}.md`,key:filename})
 
 
 const routes = [
   {path: '/', component: Home},
   {path: '/doc', component: Doc,children:[
-      {path: '/doc/' ,component:Introduce},
-      {path: '/doc/introduce' ,component:Introduce},
-      {path: '/doc/install' ,component:Install},
-      {path: '/doc/quickUse' ,component:QuickUse},
+      {path: '/doc/' ,component:md('introduce')},
+      {path: '/doc/introduce' ,component:md('introduce')},
+      {path: '/doc/install' ,component:md('install')},
+      {path: '/doc/quickUse' ,component:md('quickUse')},
       {path: '/doc/switch' ,component:SwitchDemo},
       {path: '/doc/button' ,component:ButtonDemo},
       {path: '/doc/dialog' ,component:DialogDemo},
