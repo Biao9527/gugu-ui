@@ -1,28 +1,17 @@
 <template>
-  <h2>示例一</h2>
-  <Tabs v-model:selected="selected">
-    <Tab title="导航一">内容一</Tab>
-    <Tab title="导航二">内容二</Tab>
-    <Tab title="导航三">内容三</Tab>
-  </Tabs>
-  <h2>示例二</h2>
-  <Tabs v-model:selected="selected2">
-    <Tab title="导航一">内容一</Tab>
-    <Tab :disabled="true" title="导航二">内容二</Tab>
-    <Tab title="导航三">内容三</Tab>
-  </Tabs>
+  <h1>Tab 标签页</h1>
+  <Demo :component="Tabs1Demo"/>
+  <Demo :component="Tabs2Demo"/>
 </template>
 <script>
-import Tabs from '../lib/Tabs.vue';
-import Tab from '../lib/Tab.vue';
-import {ref} from 'vue';
+import Demo from './Demo.vue';
+import Tabs1Demo from './tabs/Tabs1.demo.vue';
+import Tabs2Demo from './tabs/Tabs2.demo.vue';
 
 export default {
-  components: {Tab, Tabs},
+  components: {Demo},
   setup() {
-    const selected = ref('导航一');
-    const selected2 = ref('导航三');
-    return {selected, selected2};
+    return {Tabs1Demo,Tabs2Demo};
   }
 };
 </script>
