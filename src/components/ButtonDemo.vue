@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import Button from '../lib/Button.vue';
 import Button1Demo from './button/Button1.demo.vue';
 import Button2Demo from './button/Button2.demo.vue';
 import Button3Demo from './button/Button3.demo.vue';
@@ -21,7 +20,6 @@ import Demo from './Demo.vue';
 export default {
   components: {
     Demo,
-    Button,
     Button1Demo,
     Button2Demo,
     Button3Demo,
