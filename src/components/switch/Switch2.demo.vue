@@ -3,13 +3,13 @@
 </demo>
 
 <template>
-  <Switch v-model:value="bool1"/>
-  <Switch v-model:value="bool2" size="small"/>
-  <Switch v-model:value="bool3" size="big"/>
+  <Switch v-model:value="bool1" size="big"/>
+  <Switch v-model:value="bool2"/>
+  <Switch v-model:value="bool3" size="small"/>
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue';
+import Switch from '../../lib/Switch.vue';
 import {ref} from 'vue';
 
 export default {

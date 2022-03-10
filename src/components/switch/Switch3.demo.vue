@@ -1,5 +1,5 @@
 <demo>
-不可用状态
+不可选状态
 </demo>
 
 <template>
@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue';
+import Switch from '../../lib/Switch.vue';
 import {ref} from 'vue';
 
 export default {

@@ -1,49 +1,47 @@
 <template>
-  <h2>示例一</h2>
-  <Button>你好</Button>
-  <Button theme="button">你好</Button>
-  <Button theme="link">Link</Button>
-  <Button theme="text">Text</Button>
-  <h2>示例二</h2>
-  <Button theme="button" size="big">大大大</Button>
-  <Button theme="button">普通通</Button>
-  <Button theme="button" size="small">小小小</Button>
-  <br>
-  <Button theme="link" size="big">大大大</Button>
-  <Button theme="link">普通通</Button>
-  <Button theme="link" size="small">小小小</Button>
-  <br>
-  <Button theme="text" size="big">大大大</Button>
-  <Button theme="text">普通通</Button>
-  <Button theme="text" size="small">小小小</Button>
-  <h2>示例三</h2>
-  <Button theme="button" level="main">主要按钮</Button>
-  <Button theme="button">普通按钮</Button>
-  <Button theme="button" level="danger">危险按钮</Button>
-  <br>
-  <Button theme="link" level="main">主要链接按钮</Button>
-  <Button theme="link">普通链接按钮</Button>
-  <Button theme="link" level="danger">危险链接按钮</Button>
-  <br>
-  <Button theme="text" level="main">主要文本按钮</Button>
-  <Button theme="text">普通文本按钮</Button>
-  <Button theme="text" level="danger">危险文本按钮</Button>
-  <h2>示例四</h2>
-  <Button theme="button">普通按钮</Button>
-  <Button theme="button" :disabled="true">禁用按钮</Button>
-  <br>
-  <Button theme="link">普通链接按钮</Button>
-  <Button theme="link" disabled>禁用链接按钮</Button>
-  <br>
-  <Button theme="text">普通文本按钮</Button>
-  <Button theme="text" disabled>禁用文本按钮</Button>
-  <h2>示例五</h2>
-  <Button loading>加载中</Button>
-  <Button>加载完成</Button>
+  <div class="button-wrapper">
+    <h1>Button 按钮</h1>
+    <Demo :component="Button1Demo"/>
+    <Demo :component="Button2Demo"/>
+    <Demo :component="Button3Demo" />
+    <Demo :component="Button4Demo" />
+    <Demo :component="Button5Demo" />
+  </div>
 </template>
+
 <script>
 import Button from '../lib/Button.vue';
+import Button1Demo from './button/Button1.demo.vue';
+import Button2Demo from './button/Button2.demo.vue';
+import Button3Demo from './button/Button3.demo.vue';
+import Button4Demo from './button/Button4.demo.vue';
+import Button5Demo from './button/Button5.demo.vue';
+import Demo from './Demo.vue';
+
 export default {
-  components: {Button},
+  components: {
+    Demo,
+    Button,
+    Button1Demo,
+    Button2Demo,
+    Button3Demo,
+    Button4Demo,
+    Button5Demo
+  },
+  setup() {
+    return {
+      Button1Demo,
+      Button2Demo,
+      Button3Demo,
+      Button4Demo,
+      Button5Demo
+    };
+  }
 };
 </script>
+
+<style lang="scss">
+.button-wrapper{
+  margin: 0 20px;
+}
+</style>
