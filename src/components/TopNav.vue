@@ -18,7 +18,11 @@
 import {inject, Ref} from 'vue';
 
 export default {
-  props: ['listToggle'],
+  props: {
+    listToggle:{
+      type:Boolean,
+    }
+  },
   setup() {
     let asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
@@ -42,7 +46,7 @@ export default {
   top: 0;
   left: 0;
   right: 0;
-  border-bottom: 1px solid rgba(60, 60, 60, .12);
+  border-bottom: 1px solid #eaecef;
 }
 a {
   .icon {
