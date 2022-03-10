@@ -14,7 +14,7 @@ import Switch3Demo from './switch/Switch3.demo.vue';
 import Demo from './Demo.vue';
 
 export default {
-  components: {Demo, Switch3Demo, Switch2Demo, Switch1Demo},
+  components: {Demo},
   setup() {
     return {Switch1Demo, Switch2Demo, Switch3Demo};
   }
