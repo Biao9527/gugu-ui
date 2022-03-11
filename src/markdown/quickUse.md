@@ -3,8 +3,9 @@
 
 然后在你的代码中写入下面的代码
 
-```js
+```
 import {Button,Switch,Dialog,openDialog,Tabs,Tab} from 'gugu-ui'
+
 //若发现样式不生效，可手动引入scss
 import 'gugu-ui/dist/lib/gugu.css'
 ```
@@ -15,7 +16,7 @@ import 'gugu-ui/dist/lib/gugu.css'
 
 代码示例：
 
-```html
+```
 <template>
     <Button>按钮</Button>
 </template>

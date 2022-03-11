@@ -5,7 +5,7 @@
       <h1>咕咕 UI</h1>
       <h2>一款 相当厉害 的 UI 框架</h2>
       <p class="actions">
-        <a href="https://github.com/">GitHub</a>
+        <a href="https://github.com/Biao9527/gugu-ui">GitHub</a>
         <router-link to="/doc">开始</router-link>
       </p>
       <div class="features">
