@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "deploy-github": "sh deploy_github.sh"
   },
   "dependencies": {
     "github-markdown-css": "4.0.0",
