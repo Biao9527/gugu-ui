@@ -8,7 +8,8 @@
   "module": "dist/lib/gugu.esm.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "deploy-github": "sh deploy_github.sh"
   },
   "resolutions": {
     "node-sass": "npm:sass@1.26.11"
