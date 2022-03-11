@@ -15,20 +15,20 @@ npm install gugu-ui
 yarn add gugu-ui
 ```
 ### 引入
-```
-import {Button, Tabs, Tab, Switch, Dialog. openDialog} from "crisps-ui";
+```js
+import {Button,Switch,Dialog,openDialog,Tabs,Tab} from 'gugu-ui'
 //若发现样式不生效，可手动引入scss
-import "crisps-ui/dist/lib/crisps.css";
+import 'gugu-ui/dist/lib/gugu.css'
 ```
 ### 示例
-```
+```vue
 <template>
     <Button>按钮</Button>
 </template>
 
 <script>
-import {Button,Switch,openDialog,Tabs,Tab} from 'gugu-ui'
+import {Button,Switch,Dialog,openDialog,Tabs,Tab} from 'gugu-ui'
 
-components: {Button,Switch,Tabs,Tab}
+components: {Button,Switch,Dialog,Tabs,Tab}
 </script>
 ```
