@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed, onMounted, onUpdated, ref, watchEffect} from 'vue';
+import {computed, onMounted, ref, watchEffect} from 'vue';
 
 export default {
   props: {
@@ -40,7 +40,7 @@ export default {
         const {left: left1} = container.value.getBoundingClientRect();
         const left = left2 - left1;
         indicator.value.style.left = left + 'px';
-      });
+      },{flush:'post'});
     });
     const titles = defaults.map(t => {
       if (t.props.disabled) {
